@@ -6,7 +6,7 @@ export enum Category {
   HONEY = 'عسل سدر ونحل',
   NUTS = 'مكسرات وياميش',
   OFFERS = 'عروض خاصة',
-  GNA_BUTTER = 'Gna butter'
+  GNA_BUTTER = 'سمنة جنة الصفرة'
 }
 
 export interface Product {
@@ -19,6 +19,11 @@ export interface Product {
   description: string;
   isOffer?: boolean;
   oldPrice?: number;
+}
+
+export interface CartItem {
+  product: Product;
+  quantity: number;
 }
 
 export interface SiteInfo {
