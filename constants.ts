@@ -3,8 +3,8 @@ import { Category, Product, SiteInfo } from './types';
 export const SITE_INFO: SiteInfo = {
   name: 'القيصر للعطور',
   slogan: 'رائحة تليق بحضورك، وتبقى في الذاكرة.',
-  phone: '+20 127 230 2817',
-  whatsapp: '+20 127 230 2817',
+  phone: '01200775312',
+  whatsapp: '+20 120 077 5312',
   address: 'الإسكندرية، العجمي'
 };
 
