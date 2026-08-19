@@ -1,12 +1,10 @@
 
 export enum Category {
-  SPICES = 'بهارات',
-  HERBS = 'أعشاب طبيعية',
-  OILS = 'زيوت طبيعية',
-  HONEY = 'عسل سدر ونحل',
-  NUTS = 'مكسرات وياميش',
-  OFFERS = 'عروض خاصة',
-  GNA_BUTTER = 'سمنة جنة الصفرة'
+  MEN = 'عطور رجالي',
+  WOMEN = 'عطور حريمي',
+  UNISEX = 'عطور للجنسين',
+  OILS = 'زيوت عطرية',
+  GIFTS = 'هدايا وباكدجات'
 }
 
 export interface Product {

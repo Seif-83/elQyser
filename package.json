@@ -1,8 +1,8 @@
 {
-  "homepage": "https://Seif-83.github.io/ZiadMarket",
-  "name": "herb-store",
+  "homepage": "https://Seif-83.github.io/elQyser",
+  "name": "elqyser",
   "version": "1.0.0",
-  "description": "عطارة الأخوة - Herbal and spices store",
+  "description": "القيصر للعطور - Premium perfume store",
   "type": "module",
   "scripts": {
     "predeploy": "npm run build",

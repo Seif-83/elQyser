@@ -23,13 +23,13 @@ if (apiKey) {
 app.post('/api/benefits', async (req, res) => {
   const name = (req.body && req.body.name) || 'المنتج';
   if (!ai) {
-    return res.json({ text: `معلومات عن ${name}:\n• فوائد صحية متعددة\n• غني بالعناصر الغذائية\n• استخدام تقليدي عريق` });
+    return res.json({ text: `تفاصيل ${name}:\n• رائحة أنيقة وثبات مميز\n• مناسب للاستخدام اليومي والمناسبات\n• تركيبة مختارة بعناية من القيصر` });
   }
 
   try {
     const response = await ai.models.generateContent({
       model: 'gemini-3-flash-preview',
-      contents: `بصفتك خبير عطارة وأعشاب، اذكر 3 فوائد صحية باختصار شديد لـ "${name}". اجعل الإجابة بلهجة عربية جذابة وودودة بصيغة نقاط مختصرة.`,
+      contents: `بصفتك خبير عطور، اذكر نوتات الرائحة ودرجة الثبات والاستخدام المناسب لعطر "${name}" باختصار شديد. اجعل الإجابة عربية جذابة وودودة بصيغة نقاط مختصرة.`,
       config: { maxOutputTokens: 200, temperature: 0.7 },
     });
 

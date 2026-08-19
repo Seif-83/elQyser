@@ -2,9 +2,9 @@
 // Frontend-safe AI call: proxy requests to a backend endpoint.
 // This avoids bundling server-side SDKs or exposing API keys in the browser.
 
-const FALLBACK = (name: string) => `معلومات عن ${name}:\n• فوائد صحية متعددة\n• غني بالعناصر الغذائية\n• استخدام تقليدي عريق`;
+const FALLBACK = (name: string) => `تفاصيل ${name}:\n• رائحة أنيقة وثبات مميز\n• مناسب للاستخدام اليومي والمناسبات\n• تركيبة مختارة بعناية من القيصر`;
 
-export const getHerbalBenefits = async (itemName: string): Promise<string> => {
+export const getPerfumeDetails = async (itemName: string): Promise<string> => {
   try {
     const res = await fetch('/api/benefits', {
       method: 'POST',

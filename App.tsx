@@ -2,7 +2,7 @@
 import React, { useState, useMemo, useEffect, useRef } from 'react';
 import { Category, Product, CartItem } from './types';
 import { SITE_INFO, PRODUCTS } from './constants';
-import { getHerbalBenefits } from './services/gemini';
+import { getPerfumeDetails } from './services/gemini';
 
 // --- Sub-components ---
 
@@ -31,7 +31,7 @@ const Header: React.FC<{ cartCount: number; onOpenCart: () => void }> = ({ cartC
           )}
         </button>
         <a
-          href={`https://wa.me/${SITE_INFO.whatsapp.replace(/\s+/g, '')}?text=مرحباً، أود الاستفسار عن منتجات عطارة الأخوة.`}
+          href={`https://wa.me/${SITE_INFO.whatsapp.replace(/\s+/g, '')}?text=مرحباً، أود الاستفسار عن عطور القيصر.`}
           target="_blank"
           rel="noopener noreferrer"
           className="hidden sm:flex bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-full text-sm font-bold items-center gap-2 transition-all hover:scale-105"
@@ -48,19 +48,19 @@ const Hero: React.FC = () => (
   <section className="relative h-[60vh] flex items-center justify-center overflow-hidden">
     <div className="absolute inset-0">
       <img
-        src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80"
-        alt="Spice market background"
+        src="https://images.unsplash.com/photo-1547887538-e3a2f32cb1cc?auto=format&fit=crop&w=1920&q=85"
+        alt="زجاجات عطور القيصر"
         className="w-full h-full object-cover"
       />
       <div className="absolute inset-0 bg-gradient-to-l from-black/70 via-black/40 to-transparent"></div>
     </div>
     <div className="relative z-10 max-w-4xl px-4 text-center md:text-right hero-fade-in">
       <span className="inline-block bg-amber-600 text-white px-4 py-1 rounded-full text-sm font-bold mb-4 animate-bounce">
-        أهلاً بكم في عالم العطارة
+        أهلاً بكم في عالم القيصر
       </span>
       <h2 className="text-4xl md:text-6xl font-bold text-white font-serif-ar mb-6 leading-tight">
-        أجود أنواع الأعشاب والبهارات <br className="hidden md:block" />
-        بين يديك في <span className="text-amber-400">عطارة الأخوة</span>
+        عطور تترك أثراً لا يُنسى <br className="hidden md:block" />
+        بين يديك في <span className="text-amber-400">القيصر</span>
       </h2>
       <p className="text-xl text-amber-50 font-light mb-8 max-w-2xl">
         {SITE_INFO.slogan}
@@ -90,7 +90,7 @@ const ProductModal: React.FC<{
     let isMounted = true;
     const fetchBenefits = async () => {
       setLoading(true);
-      const data = await getHerbalBenefits(product.name);
+      const data = await getPerfumeDetails(product.name);
       if (isMounted) {
         setBenefits(data);
         setLoading(false);
@@ -127,24 +127,8 @@ const ProductModal: React.FC<{
             </div>
           </div>
           <p className="text-gray-600 mb-6 text-lg">{product.description}</p>
-
-          <div className="bg-amber-50 rounded-xl p-5 border border-amber-100">
-            <h4 className="font-bold text-amber-900 mb-2 flex items-center gap-2">
-              <svg className="w-5 h-5 text-amber-600" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a8 8 0 100 16 8 8 0 000-16zm1 11H9v-2h2v2zm0-4H9V5h2v4z"></path></svg>
-              معلومات وفوائد (بواسطة AI)
-            </h4>
-            {loading ? (
-              <div className="flex gap-2 items-center text-amber-600 animate-pulse">
-                <div className="w-2 h-2 bg-amber-600 rounded-full animate-bounce"></div>
-                <div className="w-2 h-2 bg-amber-600 rounded-full animate-bounce [animation-delay:0.2s]"></div>
-                <div className="w-2 h-2 bg-amber-600 rounded-full animate-bounce [animation-delay:0.4s]"></div>
-                <span>جاري استخراج الفوائد...</span>
-              </div>
-            ) : (
-              <div className="text-gray-700 whitespace-pre-line leading-relaxed">
-                {benefits}
-              </div>
-            )}
+          <div className="rounded-xl bg-amber-50 border border-amber-100 p-4 text-sm text-amber-900 whitespace-pre-line min-h-16">
+            {loading ? 'نجهز لك تفاصيل الرائحة...' : benefits}
           </div>
 
           <div className="mt-8 flex items-center justify-between gap-4">
@@ -191,7 +175,7 @@ const ProductCard: React.FC<{
         </div>
       )}
       <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
-        <span className="bg-white text-amber-900 px-4 py-2 rounded-full text-sm font-bold shadow-lg">التفاصيل والفوائد</span>
+        <span className="bg-white text-amber-900 px-4 py-2 rounded-full text-sm font-bold shadow-lg">تفاصيل العطر</span>
       </div>
     </div>
     <div className="p-4 flex flex-col flex-grow">
@@ -474,7 +458,7 @@ export default function App() {
           <div className="relative w-full md:max-w-md">
             <input
               type="text"
-              placeholder="ابحث عن بهارات، أعشاب، مكسرات..."
+              placeholder="ابحث عن عطر، مسك، زيت عطري..."
               className="w-full bg-amber-50 border-none rounded-xl py-3 px-12 focus:ring-2 focus:ring-amber-500 transition-all text-amber-900"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
@@ -552,7 +536,7 @@ export default function App() {
             <div>
               <h3 className="text-2xl font-bold font-serif-ar mb-6">{SITE_INFO.name}</h3>
               <p className="text-amber-200/70 mb-6 leading-relaxed">
-                وجهتكم الأولى لأجود أنواع العطارة والبهارات والزيوت الطبيعية. نحن نفخر بتقديم منتجات نقية 100% مختارة بعناية لتناسب ذوقكم الرفيع.
+                وجهتكم لاختيار عطور مميزة بروائح أصلية وثبات يدوم. نختار كل تركيبة بعناية لتناسب ذوقكم وتكمل حضوركم.
               </p>
               <div className="flex gap-4">
                 <a href="https://www.facebook.com/profile.php?id=61577698877648&mibextid=wwXIfr&mibextid=wwXIfr" className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-amber-600 transition-colors">
@@ -608,14 +592,14 @@ export default function App() {
                 روابط سريعة
               </h4>
               <ul className="space-y-4 text-amber-200/70">
-                <li><a href="#menu" className="hover:text-amber-400 transition-colors">قائمة البهارات</a></li>
-                <li><a href="#offers" className="hover:text-amber-400 transition-colors">عروض الأعشاب</a></li>
-                <li><a href="#menu" className="hover:text-amber-400 transition-colors">زيوت طبيعية</a></li>
+                <li><a href="#menu" className="hover:text-amber-400 transition-colors">كل العطور</a></li>
+                <li><a href="#offers" className="hover:text-amber-400 transition-colors">العروض الحالية</a></li>
+                <li><a href="#menu" className="hover:text-amber-400 transition-colors">الزيوت العطرية</a></li>
               </ul>
             </div>
           </div>
           <div className="text-center text-sm text-amber-200/30">
-            &copy; {new Date().getFullYear()} عطارة الأخوة. جميع الحقوق محفوظة. تم التطوير بشغف.
+            &copy; {new Date().getFullYear()} القيصر للعطور. جميع الحقوق محفوظة.
           </div>
         </div>
       </footer>
