@@ -5,7 +5,9 @@ export const SITE_INFO: SiteInfo = {
   slogan: 'رائحة تليق بحضورك، وتبقى في الذاكرة.',
   phone: '01200775312',
   whatsapp: '+20 120 077 5312',
-  address: 'الإسكندرية، العجمي'
+  address: 'الإسكندرية، العجمي',
+  facebook: 'https://www.facebook.com/share/1Bpr6zP9UZ/?mibextid=wwXIfr',
+  tiktok: 'https://www.tiktok.com/@qaysar_parfum?_r=1&_t=ZS-990ubqAxNwa'
 };
 
 const perfumeImage = (id: string) =>

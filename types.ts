@@ -31,4 +31,6 @@ export interface SiteInfo {
   phone: string;
   whatsapp: string;
   address: string;
+  facebook: string;
+  tiktok: string;
 }
