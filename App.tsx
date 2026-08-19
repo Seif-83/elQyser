@@ -2,7 +2,6 @@
 import React, { useState, useMemo, useEffect, useRef } from 'react';
 import { Category, Product, CartItem } from './types';
 import { SITE_INFO, PRODUCTS } from './constants';
-import { getPerfumeDetails } from './services/gemini';
 
 // --- Sub-components ---
 
@@ -83,23 +82,6 @@ const ProductModal: React.FC<{
   cartQuantity: number;
   onUpdateCart: (amount: number) => void;
 }> = ({ product, onClose, cartQuantity, onUpdateCart }) => {
-  const [benefits, setBenefits] = useState<string>('');
-  const [loading, setLoading] = useState<boolean>(true);
-
-  useEffect(() => {
-    let isMounted = true;
-    const fetchBenefits = async () => {
-      setLoading(true);
-      const data = await getPerfumeDetails(product);
-      if (isMounted) {
-        setBenefits(data);
-        setLoading(false);
-      }
-    };
-    fetchBenefits();
-    return () => { isMounted = false; };
-  }, [product.name]);
-
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fadeIn" onClick={onClose}>
       <div
@@ -128,7 +110,7 @@ const ProductModal: React.FC<{
           </div>
           <p className="text-gray-600 mb-6 text-lg">{product.description}</p>
           <div className="rounded-xl bg-amber-50 border border-amber-100 p-4 text-sm text-amber-900 whitespace-pre-line min-h-16">
-            {loading ? 'نجهز لك تفاصيل الرائحة...' : benefits}
+            {product.details}
           </div>
 
           <div className="mt-8 flex items-center justify-between gap-4">

@@ -15,6 +15,7 @@ export interface Product {
   unit: string;
   image: string;
   description: string;
+  details: string;
   isOffer?: boolean;
   oldPrice?: number;
 }
