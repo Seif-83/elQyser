@@ -21,7 +21,9 @@ if (apiKey) {
 }
 
 app.post('/api/benefits', async (req, res) => {
-  const name = (req.body && req.body.name) || 'المنتج';
+  const name = (req.body && req.body.name) || 'هذا العطر';
+  const category = (req.body && req.body.category) || '';
+  const description = (req.body && req.body.description) || '';
   if (!ai) {
     return res.json({ text: `تفاصيل ${name}:\n• رائحة أنيقة وثبات مميز\n• مناسب للاستخدام اليومي والمناسبات\n• تركيبة مختارة بعناية من القيصر` });
   }
@@ -29,7 +31,12 @@ app.post('/api/benefits', async (req, res) => {
   try {
     const response = await ai.models.generateContent({
       model: 'gemini-3-flash-preview',
-      contents: `بصفتك خبير عطور، اذكر نوتات الرائحة ودرجة الثبات والاستخدام المناسب لعطر "${name}" باختصار شديد. اجعل الإجابة عربية جذابة وودودة بصيغة نقاط مختصرة.`,
+      contents: `أنت خبير عطور في متجر القيصر. اكتب وصفاً عربياً قصيراً وحقيقياً قدر الإمكان للعطر التالي:
+    الاسم: ${name}
+    الفئة: ${category}
+    وصف المتجر: ${description}
+
+    أجب في 3 نقاط فقط عن طابع الرائحة المتوقع ودرجة الثبات أو الانتشار والاستخدام المناسب. اذكر أن التفاصيل تقديرية إن لم تكن موثقة، ولا تخترع مكونات دقيقة أو فوائد صحية.`,
       config: { maxOutputTokens: 200, temperature: 0.7 },
     });
 

@@ -90,7 +90,7 @@ const ProductModal: React.FC<{
     let isMounted = true;
     const fetchBenefits = async () => {
       setLoading(true);
-      const data = await getPerfumeDetails(product.name);
+      const data = await getPerfumeDetails(product);
       if (isMounted) {
         setBenefits(data);
         setLoading(false);
