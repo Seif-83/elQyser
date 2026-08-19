@@ -220,7 +220,7 @@ const CartCheckoutView: React.FC<{
   const cartItems: CartItem[] = useMemo(() => {
     return Object.entries(cart)
       .map(([id, quantity]) => ({
-        product: PRODUCTS.find(p => p.id === id)!,
+        product: PRODUCTS.find((product: Product) => product.id === id)!,
         quantity
       }))
       .filter(item => item.product && item.quantity > 0);
@@ -369,18 +369,18 @@ export default function App() {
     };
   }, []);
 
-  const categories = ['الكل', ...Object.values(Category)];
+  const categories: Array<Category | 'الكل'> = ['الكل', ...Object.values(Category)];
 
   const filteredProducts = useMemo(() => {
-    return PRODUCTS.filter(p => {
-      const matchesCategory = activeCategory === 'الكل' || p.category === activeCategory;
-      const matchesSearch = p.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        p.description.toLowerCase().includes(searchQuery.toLowerCase());
+    return PRODUCTS.filter((product: Product) => {
+      const matchesCategory = activeCategory === 'الكل' || product.category === activeCategory;
+      const matchesSearch = product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        product.description.toLowerCase().includes(searchQuery.toLowerCase());
       return matchesCategory && matchesSearch;
     });
   }, [activeCategory, searchQuery]);
 
-  const offers = useMemo(() => PRODUCTS.filter(p => p.isOffer), []);
+  const offers = useMemo(() => PRODUCTS.filter((product: Product) => product.isOffer), []);
 
   return (
     <div className="min-h-screen bg-[#fdfaf6] selection:bg-amber-200 selection:text-amber-900">
@@ -411,7 +411,7 @@ export default function App() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {offers.slice(0, 3).map((offer, index) => (
+              {offers.slice(0, 3).map((offer: Product, index: number) => (
                 <div
                   key={offer.id}
                   style={{
@@ -470,7 +470,7 @@ export default function App() {
             {categories.map(cat => (
               <button
                 key={cat}
-                onClick={() => setActiveCategory(cat as any)}
+                onClick={() => setActiveCategory(cat)}
                 className={`whitespace-nowrap px-6 py-2 rounded-xl font-bold transition-all ${activeCategory === cat
                   ? 'bg-amber-800 text-white shadow-md'
                   : 'bg-amber-50 text-amber-800 hover:bg-amber-100'
@@ -484,7 +484,7 @@ export default function App() {
 
         {/* Products Grid */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {filteredProducts.slice(0, visibleCount).map((product, index) => (
+          {filteredProducts.slice(0, visibleCount).map((product: Product, index: number) => (
             <div
               key={product.id}
               style={{
