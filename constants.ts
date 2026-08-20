@@ -112,16 +112,6 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: '10',
-    name: 'مسك الطهارة',
-    category: Category.OILS,
-    price: 140,
-    unit: '12 مل',
-    description: 'مسك ناعم مركز بنقاء مميز ولمسة بودرية رقيقة.',
-    details: '• النوتات: مسك أبيض نقي ولمسة بودرية ناعمة\n• الثبات: جيد بفضل التركيز الزيتي\n• الاستخدام: مناسب للاستخدام اليومي وبعد الاستحمام',
-    image: perfumeImage('photo-1610461888750-10bfc601b8a1')
-  },
-  {
-    id: '11',
     name: 'أسد Asad من لطافة',
     category: Category.MEN,
     price: 600,
