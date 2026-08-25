@@ -85,17 +85,6 @@ export const PRODUCTS: Product[] = [
     oldPrice: 480
   },
   {
-    id: '7',
-    name: 'زيت عود كمبودي',
-    section: ProductSection.EASTERN,
-    category: Category.OILS,
-    price: 190,
-    unit: '12 مل',
-    description: 'زيت عطري مركز بنفحات عود كمبودي أصيل وثبات يدوم طويلاً.',
-    details: '• النوتات: عود كمبودي مركز بنفحة خشبية عميقة\n• الثبات: قوي جداً لأن التركيبة زيتية مركزة\n• الاستخدام: ضع نقطة أو نقطتين على أماكن النبض',
-    image: perfumeImage('photo-1608571423902-eed4a5ad8108')
-  },
-  {
     id: '8',
     name: 'باقة العروس',
     section: ProductSection.WESTERN,
@@ -129,5 +118,93 @@ export const PRODUCTS: Product[] = [
     description: 'عطر شرقي قوي من لطافة بنفحات التبغ والتوابل والقهوة، مناسب للحضور المميز.',
     details: '• الشركة المصنعة: لطافة Lattafa\n• النوتات العليا: فلفل أسود وأناناس وتبغ\n• قلب العطر: قهوة وباتشولي وسوسن\n• القاعدة: فانيليا وعنبر وأخشاب وبنزوين\n• الثبات: قوي، من 8 إلى 10 ساعات تقريبًا حسب البشرة والجو\n• الاستخدام: مناسب للمساء والشتاء والخروجات والمناسبات',
     image: 'أسد.jpeg'
+  },
+  {
+    id: '11',
+    name: 'مسك التفاح',
+    section: ProductSection.EASTERN,
+    category: Category.OILS,
+    price: 20,
+    unit: 'الجرام',
+    description: 'مسك فاكهي منعش برائحة التفاح ولمسة ناعمة تناسب الاستخدام اليومي.',
+    details: '• الرائحة: تفاح منعش بلمسة مسكية ناعمة\n• السعر: 20 جنيه للجرام\n• الاستخدام: مناسب للجنسين وللاستخدام اليومي',
+    image: 'مسك التفاح.jpg'
+  },
+  {
+    id: '12',
+    name: 'مسك الطهارة',
+    section: ProductSection.EASTERN,
+    category: Category.OILS,
+    price: 20,
+    unit: 'الجرام',
+    description: 'مسك نقي وناعم برائحة نظيفة وهادئة.',
+    details: '• الرائحة: مسك أبيض نظيف وناعم\n• السعر: 20 جنيه للجرام\n• الاستخدام: مناسب للاستخدام اليومي وبعد الاستحمام',
+    image: 'مسك الطهارة.jpg'
+  },
+  {
+    id: '13',
+    name: 'مسك أناناس',
+    section: ProductSection.EASTERN,
+    category: Category.OILS,
+    price: 20,
+    unit: 'الجرام',
+    description: 'مسك فاكهي استوائي بنفحات الأناناس المنعشة.',
+    details: '• الرائحة: أناناس فاكهي ومنعش\n• السعر: 20 جنيه للجرام\n• الاستخدام: مناسب للجنسين وللأجواء الصيفية',
+    image: 'مسك اناناس.jpg'
+  },
+  {
+    id: '14',
+    name: 'مسك خوخ',
+    section: ProductSection.EASTERN,
+    category: Category.OILS,
+    price: 20,
+    unit: 'الجرام',
+    description: 'مسك ناعم وحلو بنفحات الخوخ الفاكهية.',
+    details: '• الرائحة: خوخ حلو وناعم\n• السعر: 20 جنيه للجرام\n• الاستخدام: مناسب للجنسين والاستخدام اليومي',
+    image: 'مسك خوخ.jpg'
+  },
+  {
+    id: '15',
+    name: 'مسك رمان',
+    section: ProductSection.EASTERN,
+    category: Category.OILS,
+    price: 20,
+    unit: 'الجرام',
+    description: 'مسك فاكهي حيوي بنفحات الرمان المنعشة.',
+    details: '• الرائحة: رمان منعش بلمسة مسكية\n• السعر: 20 جنيه للجرام\n• الاستخدام: مناسب للجنسين وللاستخدام اليومي',
+    image: 'مسك رمان.jpg'
+  },
+  {
+    id: '16',
+    name: 'مسك فانيليا',
+    section: ProductSection.EASTERN,
+    category: Category.OILS,
+    price: 20,
+    unit: 'الجرام',
+    description: 'مسك دافئ وحلو بنفحات الفانيليا الناعمة.',
+    details: '• الرائحة: فانيليا كريمية ولمسة مسكية\n• السعر: 20 جنيه للجرام\n• الاستخدام: مناسب للجنسين وللأجواء المسائية',
+    image: 'مسك فانيليا.jpg'
+  },
+  {
+    id: '17',
+    name: 'مسك فراولة',
+    section: ProductSection.EASTERN,
+    category: Category.OILS,
+    price: 20,
+    unit: 'الجرام',
+    description: 'مسك فاكهي حلو برائحة الفراولة المنعشة.',
+    details: '• الرائحة: فراولة حلوة ومنعشة\n• السعر: 20 جنيه للجرام\n• الاستخدام: مناسب للجنسين وللاستخدام اليومي',
+    image: 'مسك فراولة.jpg'
+  },
+  {
+    id: '18',
+    name: 'مسك مانجا',
+    section: ProductSection.EASTERN,
+    category: Category.OILS,
+    price: 20,
+    unit: 'الجرام',
+    description: 'مسك استوائي غني بنفحات المانجا الحلوة.',
+    details: '• الرائحة: مانجا استوائية وحلوة\n• السعر: 20 جنيه للجرام\n• الاستخدام: مناسب للجنسين وللأجواء الصيفية',
+    image: 'مسك مانجا.jpg'
   }
 ];
