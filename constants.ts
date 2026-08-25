@@ -1,4 +1,4 @@
-import { Category, Product, SiteInfo } from './types';
+import { Category, Product, ProductSection, SiteInfo } from './types';
 
 export const SITE_INFO: SiteInfo = {
   name: 'القيصر للعطور',
@@ -17,6 +17,7 @@ export const PRODUCTS: Product[] = [
   {
     id: '1',
     name: 'عود ملكي فاخر',
+    section: ProductSection.WESTERN,
     category: Category.MEN,
     price: 450,
     unit: '50 مل',
@@ -29,6 +30,7 @@ export const PRODUCTS: Product[] = [
   {
     id: '2',
     name: 'إكسير المسك الأبيض',
+    section: ProductSection.WESTERN,
     category: Category.UNISEX,
     price: 320,
     unit: '50 مل',
@@ -39,6 +41,7 @@ export const PRODUCTS: Product[] = [
   {
     id: '3',
     name: 'روز باريس',
+    section: ProductSection.WESTERN,
     category: Category.WOMEN,
     price: 380,
     unit: '50 مل',
@@ -49,6 +52,7 @@ export const PRODUCTS: Product[] = [
   {
     id: '4',
     name: 'هيبة الرجل',
+    section: ProductSection.WESTERN,
     category: Category.MEN,
     price: 295,
     unit: '50 مل',
@@ -59,6 +63,7 @@ export const PRODUCTS: Product[] = [
   {
     id: '5',
     name: 'فانيليا شرقية',
+    section: ProductSection.WESTERN,
     category: Category.WOMEN,
     price: 275,
     unit: '50 مل',
@@ -69,6 +74,7 @@ export const PRODUCTS: Product[] = [
   {
     id: '6',
     name: 'عنبر القيصر',
+    section: ProductSection.WESTERN,
     category: Category.UNISEX,
     price: 410,
     unit: '50 مل',
@@ -81,6 +87,7 @@ export const PRODUCTS: Product[] = [
   {
     id: '7',
     name: 'زيت عود كمبودي',
+    section: ProductSection.EASTERN,
     category: Category.OILS,
     price: 190,
     unit: '12 مل',
@@ -91,6 +98,7 @@ export const PRODUCTS: Product[] = [
   {
     id: '8',
     name: 'باقة العروس',
+    section: ProductSection.WESTERN,
     category: Category.GIFTS,
     price: 650,
     unit: 'الباقة',
@@ -103,6 +111,7 @@ export const PRODUCTS: Product[] = [
   {
     id: '9',
     name: 'نسيم الصيف',
+    section: ProductSection.WESTERN,
     category: Category.UNISEX,
     price: 260,
     unit: '50 مل',
@@ -113,6 +122,7 @@ export const PRODUCTS: Product[] = [
   {
     id: '10',
     name: 'أسد Asad من لطافة',
+    section: ProductSection.WESTERN,
     category: Category.MEN,
     price: 600,
     unit: '100 مل',

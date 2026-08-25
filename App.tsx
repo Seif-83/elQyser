@@ -1,6 +1,6 @@
 
 import React, { useState, useMemo, useEffect, useRef } from 'react';
-import { Category, Product, CartItem } from './types';
+import { Category, Product, ProductSection, CartItem } from './types';
 import { SITE_INFO, PRODUCTS } from './constants';
 
 // --- Sub-components ---
@@ -290,6 +290,7 @@ const CartCheckoutView: React.FC<{
 // --- Main App Component ---
 
 export default function App() {
+  const [activeSection, setActiveSection] = useState<ProductSection | 'الكل'>('الكل');
   const [activeCategory, setActiveCategory] = useState<Category | 'الكل'>('الكل');
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
@@ -314,7 +315,7 @@ export default function App() {
 
   useEffect(() => {
     setVisibleCount(6);
-  }, [activeCategory, searchQuery]);
+  }, [activeSection, activeCategory, searchQuery]);
 
   const offersRef = useRef<HTMLDivElement>(null);
   const menuRef = useRef<HTMLDivElement>(null);
@@ -351,16 +352,22 @@ export default function App() {
     };
   }, []);
 
-  const categories: Array<Category | 'الكل'> = ['الكل', ...Object.values(Category)];
+  const westernCategories: Category[] = [
+    Category.MEN,
+    Category.WOMEN,
+    Category.UNISEX,
+    Category.GIFTS
+  ];
 
   const filteredProducts = useMemo(() => {
     return PRODUCTS.filter((product: Product) => {
+      const matchesSection = activeSection === 'الكل' || product.section === activeSection;
       const matchesCategory = activeCategory === 'الكل' || product.category === activeCategory;
       const matchesSearch = product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
         product.description.toLowerCase().includes(searchQuery.toLowerCase());
-      return matchesCategory && matchesSearch;
+      return matchesSection && matchesCategory && matchesSearch;
     });
-  }, [activeCategory, searchQuery]);
+  }, [activeSection, activeCategory, searchQuery]);
 
   const offers = useMemo(() => PRODUCTS.filter((product: Product) => product.isOffer), []);
 
@@ -448,19 +455,53 @@ export default function App() {
             <svg className="w-6 h-6 text-amber-400 absolute right-4 top-1/2 -translate-y-1/2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
           </div>
 
-          <div className="flex gap-2 overflow-x-auto pb-2 w-full md:w-auto scrollbar-hide">
-            {categories.map(cat => (
-              <button
-                key={cat}
-                onClick={() => setActiveCategory(cat)}
-                className={`whitespace-nowrap px-6 py-2 rounded-xl font-bold transition-all ${activeCategory === cat
-                  ? 'bg-amber-800 text-white shadow-md'
-                  : 'bg-amber-50 text-amber-800 hover:bg-amber-100'
-                  }`}
-              >
-                {cat}
-              </button>
-            ))}
+          <div className="flex flex-col gap-3 w-full md:w-auto md:items-end">
+            <div className="flex gap-2 overflow-x-auto pb-1 w-full md:w-auto scrollbar-hide">
+              {(['الكل', ProductSection.WESTERN, ProductSection.EASTERN] as Array<ProductSection | 'الكل'>).map(section => (
+                <button
+                  key={section}
+                  onClick={() => {
+                    setActiveSection(section);
+                    setActiveCategory('الكل');
+                  }}
+                  className={`whitespace-nowrap px-6 py-2 rounded-xl font-bold transition-all ${activeSection === section
+                    ? 'bg-amber-800 text-white shadow-md'
+                    : 'bg-amber-50 text-amber-800 hover:bg-amber-100'
+                    }`}
+                >
+                  {section}
+                </button>
+              ))}
+            </div>
+
+            {activeSection !== ProductSection.EASTERN && (
+              <div className="flex gap-2 overflow-x-auto pb-1 w-full md:w-auto scrollbar-hide">
+                <button
+                  onClick={() => setActiveCategory('الكل')}
+                  className={`whitespace-nowrap px-4 py-1.5 rounded-lg text-sm font-bold transition-all ${activeCategory === 'الكل'
+                    ? 'bg-amber-200 text-amber-900'
+                    : 'bg-gray-100 text-gray-600 hover:bg-amber-50'
+                    }`}
+                >
+                  كل الغربي
+                </button>
+                {westernCategories.map(category => (
+                  <button
+                    key={category}
+                    onClick={() => {
+                      setActiveSection(ProductSection.WESTERN);
+                      setActiveCategory(category);
+                    }}
+                    className={`whitespace-nowrap px-4 py-1.5 rounded-lg text-sm font-bold transition-all ${activeCategory === category
+                      ? 'bg-amber-200 text-amber-900'
+                      : 'bg-gray-100 text-gray-600 hover:bg-amber-50'
+                      }`}
+                  >
+                    {category}
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
         </div>
 

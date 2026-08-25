@@ -7,9 +7,15 @@ export enum Category {
   GIFTS = 'هدايا وباكدجات'
 }
 
+export enum ProductSection {
+  WESTERN = 'الغربي',
+  EASTERN = 'الشرقي'
+}
+
 export interface Product {
   id: string;
   name: string;
+  section: ProductSection;
   category: Category;
   price: number;
   unit: string;
