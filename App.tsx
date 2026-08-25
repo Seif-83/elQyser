@@ -9,6 +9,11 @@ const Header: React.FC<{ cartCount: number; onOpenCart: () => void }> = ({ cartC
   <header className="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-amber-100 shadow-sm">
     <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
       <div className="flex items-center gap-3">
+        <img
+          src="logo.png"
+          alt="شعار القيصر للعطور"
+          className="w-10 h-10 object-contain shrink-0"
+        />
         <h1 className="text-2xl font-bold text-amber-900 font-serif-ar">{SITE_INFO.name}</h1>
       </div>
       <div className="hidden md:flex gap-6 text-amber-800 font-medium">
