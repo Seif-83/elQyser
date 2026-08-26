@@ -51,11 +51,17 @@ const Header: React.FC<{ cartCount: number; onOpenCart: () => void }> = ({ cartC
 const Hero: React.FC = () => (
   <section className="relative h-[60vh] flex items-center justify-center overflow-hidden">
     <div className="absolute inset-0">
-      <img
-        src="https://images.unsplash.com/photo-1547887538-e3a2f32cb1cc?auto=format&fit=crop&w=1920&q=85"
-        alt="زجاجات عطور القيصر"
-        className="w-full h-full object-cover"
-      />
+      <picture className="block w-full h-full">
+        <source
+          media="(max-width: 767px)"
+          srcSet={`${import.meta.env.BASE_URL}mobile-view.jpeg`}
+        />
+        <img
+          src={`${import.meta.env.BASE_URL}laptob-view.jpeg`}
+          alt="زجاجات عطور القيصر"
+          className="w-full h-full object-cover"
+        />
+      </picture>
       <div className="absolute inset-0 bg-gradient-to-l from-black/70 via-black/40 to-transparent"></div>
     </div>
     <div className="relative z-10 max-w-4xl px-4 text-center md:text-right hero-fade-in">
@@ -303,6 +309,15 @@ export default function App() {
   const [cart, setCart] = useState<Record<string, number>>({});
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [visibleCount, setVisibleCount] = useState(6);
+
+  useEffect(() => {
+    const isModalOpen = Boolean(selectedProduct || isCartOpen);
+    document.body.style.overflow = isModalOpen ? 'hidden' : '';
+
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [selectedProduct, isCartOpen]);
 
   const handleUpdateCart = (productId: string, amount: number) => {
     setCart(prev => {
