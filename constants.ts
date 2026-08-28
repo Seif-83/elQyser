@@ -15,100 +15,6 @@ const perfumeImage = (id: string) =>
 
 export const PRODUCTS: Product[] = [
   {
-    id: '1',
-    name: 'عود ملكي فاخر',
-    section: ProductSection.WESTERN,
-    category: Category.MEN,
-    price: 450,
-    unit: '50 مل',
-    description: 'تركيبة شرقية عميقة بلمسات العود والعنبر والمسك، لحضور لا يُنسى.',
-    details: '• النوتات: عود دافئ مع عنبر ولمسة مسك ناعمة\n• الثبات: قوي ومناسب للسهرات والمناسبات\n• الاستخدام: اختيار مثالي لمن يحب الروائح الشرقية الفاخرة',
-    image: perfumeImage('photo-1615634260167-c8cdede054de'),
-    isOffer: true,
-    oldPrice: 520
-  },
-  {
-    id: '2',
-    name: 'إكسير المسك الأبيض',
-    section: ProductSection.WESTERN,
-    category: Category.UNISEX,
-    price: 320,
-    unit: '50 مل',
-    description: 'مسك أبيض ناعم ونظيف مع نفحات زهرية هادئة للاستخدام اليومي.',
-    details: '• النوتات: مسك أبيض نظيف مع نفحات زهرية وبودرة ناعمة\n• الثبات: متوسط وهادئ للاستخدام اليومي\n• الاستخدام: مناسب للعمل وبعد الاستحمام وللجنسين',
-    image: perfumeImage('photo-1588405748880-12d1d2a59f75')
-  },
-  {
-    id: '3',
-    name: 'روز باريس',
-    section: ProductSection.WESTERN,
-    category: Category.WOMEN,
-    price: 380,
-    unit: '50 مل',
-    description: 'ورد فرنسي أنيق ممزوج بالفانيليا وخشب الصندل بنهاية دافئة.',
-    details: '• النوتات: ورد ناعم وفانيليا مع قاعدة من خشب الصندل\n• الثبات: متوسط إلى جيد مع أثر أنيق\n• الاستخدام: مناسب للنهار والمناسبات الهادئة',
-    image: perfumeImage('photo-1541643600914-78b084683601')
-  },
-  {
-    id: '4',
-    name: 'هيبة الرجل',
-    section: ProductSection.WESTERN,
-    category: Category.MEN,
-    price: 295,
-    unit: '50 مل',
-    description: 'مزيج منعش من الحمضيات والتوابل والأخشاب لشخصية واثقة.',
-    details: '• النوتات: حمضيات منعشة مع توابل دافئة وأخشاب\n• الثبات: جيد وانتشاره واضح في البداية\n• الاستخدام: مناسب للعمل والخروجات اليومية',
-    image: perfumeImage('photo-1594035910387-fea47794261f')
-  },
-  {
-    id: '5',
-    name: 'فانيليا شرقية',
-    section: ProductSection.WESTERN,
-    category: Category.WOMEN,
-    price: 275,
-    unit: '50 مل',
-    description: 'فانيليا كريمية مع لمسة عنبرية تمنحك دفئاً وأناقة طوال اليوم.',
-    details: '• النوتات: فانيليا كريمية وعنبر دافئ ولمسة حلوة\n• الثبات: جيد ويميل إلى الهدوء بعد مرور الوقت\n• الاستخدام: رائع للأجواء المسائية والشتوية',
-    image: perfumeImage('photo-1592945403244-b3fbafd7f539')
-  },
-  {
-    id: '6',
-    name: 'عنبر القيصر',
-    section: ProductSection.WESTERN,
-    category: Category.UNISEX,
-    price: 410,
-    unit: '50 مل',
-    description: 'عنبر غني مع زعفران وعود ناعم، مناسب للمناسبات والسهرات.',
-    details: '• النوتات: عنبر غني وزعفران مع عود شرقي ناعم\n• الثبات: قوي ومميز على الملابس\n• الاستخدام: للمناسبات والسهرات ولمحبي الطابع الفاخر',
-    image: perfumeImage('photo-1523293182086-7651a899d37f'),
-    isOffer: true,
-    oldPrice: 480
-  },
-  {
-    id: '8',
-    name: 'باقة العروس',
-    section: ProductSection.WESTERN,
-    category: Category.GIFTS,
-    price: 650,
-    unit: 'الباقة',
-    description: 'باقة مختارة من عطر نسائي ومسك وزيت عطري في تغليف أنيق.',
-    details: '• المحتوى: عطر نسائي مع مسك وزيت عطري بتغليف هدية\n• الطابع: مزيج ناعم وأنيق يناسب الذوق الهادئ\n• الاستخدام: هدية جاهزة للخطوبة أو الزفاف أو المناسبات',
-    image: perfumeImage('photo-1547887538-e3a2f32cb1cc'),
-    isOffer: true,
-    oldPrice: 760
-  },
-  {
-    id: '9',
-    name: 'نسيم الصيف',
-    section: ProductSection.WESTERN,
-    category: Category.UNISEX,
-    price: 260,
-    unit: '50 مل',
-    description: 'رائحة منعشة من البرغموت والزهور البيضاء تناسب الأيام المشمسة.',
-    details: '• النوتات: برغموت منعش وزهور بيضاء بلمسة خفيفة\n• الثبات: متوسط ومنعش بدون ثقل\n• الاستخدام: مثالي للصيف والنهار والخروجات السريعة',
-    image: perfumeImage('photo-1595535373192-fc8935bacd89')
-  },
-  {
     id: '10',
     name: 'أسد Asad من لطافة',
     section: ProductSection.WESTERN,
@@ -206,5 +112,49 @@ export const PRODUCTS: Product[] = [
     description: 'مسك استوائي غني بنفحات المانجا الحلوة.',
     details: '• الرائحة: مانجا استوائية وحلوة\n• السعر: 20 جنيه للجرام\n• الاستخدام: مناسب للجنسين وللأجواء الصيفية',
     image: 'مسك مانجا.jpg'
+  },
+  {
+    id: '19',
+    name: 'معطر ZAHRA جو',
+    section: ProductSection.AIR_FRESHENERS,
+    category: Category.AIR_FRESHENERS,
+    price: 60,
+    unit: 'العبوة',
+    description: 'معطر جو من ZAHRA برائحة منعشة تضفي لمسة جميلة على المكان.',
+    details: '• النوع: معطر جو\n• الشركة: ZAHRA\n• الاستخدام: مناسب للمنزل والسيارة',
+    image: 'معطر ZAHRA جو.jpeg'
+  },
+  {
+    id: '20',
+    name: 'معطر ZAHRA أرضيات صغير',
+    section: ProductSection.AIR_FRESHENERS,
+    category: Category.AIR_FRESHENERS,
+    price: 30,
+    unit: 'العبوة',
+    description: 'معطر أرضيات ZAHRA بحجم صغير لرائحة نظافة تدوم في المنزل.',
+    details: '• النوع: معطر أرضيات\n• الشركة: ZAHRA\n• الحجم: صغير',
+    image: 'معطر ZAHRA ارضيات صغير.jpeg'
+  },
+  {
+    id: '21',
+    name: 'معطر ZAHRA أرضيات وسط',
+    section: ProductSection.AIR_FRESHENERS,
+    category: Category.AIR_FRESHENERS,
+    price: 40,
+    unit: 'العبوة',
+    description: 'معطر أرضيات ZAHRA بحجم متوسط لرائحة منعشة ونظافة مميزة.',
+    details: '• النوع: معطر أرضيات\n• الشركة: ZAHRA\n• الحجم: وسط',
+    image: 'معطر ZAHRA ارضيات وسط.jpeg'
+  },
+  {
+    id: '22',
+    name: 'معطر ZAHRA أرضيات كبير',
+    section: ProductSection.AIR_FRESHENERS,
+    category: Category.AIR_FRESHENERS,
+    price: 60,
+    unit: 'العبوة',
+    description: 'معطر أرضيات ZAHRA بحجم كبير لرائحة تدوم وتنعش أجواء المنزل.',
+    details: '• النوع: معطر أرضيات\n• الشركة: ZAHRA\n• الحجم: كبير',
+    image: 'معطر ZAHRA ارضيات كبير.jpeg'
   }
 ];

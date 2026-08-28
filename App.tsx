@@ -10,9 +10,9 @@ const Header: React.FC<{ cartCount: number; onOpenCart: () => void }> = ({ cartC
     <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
       <div className="flex items-center gap-3">
         <img
-          src={`${import.meta.env.BASE_URL}logo.png`}
+          src={`${import.meta.env.BASE_URL}logo.webp`}
           alt="شعار القيصر للعطور"
-          className="w-10 h-10 object-contain shrink-0 rounded-full"
+          className="w-10 h-10 object-contain shrink-0 "
         />
         <h1 className="text-2xl font-bold text-amber-900 font-serif-ar">{SITE_INFO.name}</h1>
       </div>
@@ -375,8 +375,7 @@ export default function App() {
   const westernCategories: Category[] = [
     Category.MEN,
     Category.WOMEN,
-    Category.UNISEX,
-    Category.GIFTS
+    Category.UNISEX
   ];
 
   const filteredProducts = useMemo(() => {
@@ -477,7 +476,7 @@ export default function App() {
 
           <div className="flex flex-col gap-3 w-full md:w-auto md:items-end">
             <div className="flex gap-2 overflow-x-auto pb-1 w-full md:w-auto scrollbar-hide">
-              {(['الكل', ProductSection.WESTERN, ProductSection.EASTERN] as Array<ProductSection | 'الكل'>).map(section => (
+              {(['الكل', ProductSection.WESTERN, ProductSection.EASTERN, ProductSection.AIR_FRESHENERS] as Array<ProductSection | 'الكل'>).map(section => (
                 <button
                   key={section}
                   onClick={() => {
@@ -494,7 +493,7 @@ export default function App() {
               ))}
             </div>
 
-            {activeSection !== ProductSection.EASTERN && (
+            {activeSection === ProductSection.WESTERN && (
               <div className="flex gap-2 overflow-x-auto pb-1 w-full md:w-auto scrollbar-hide">
                 <button
                   onClick={() => setActiveCategory('الكل')}

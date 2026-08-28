@@ -4,12 +4,13 @@ export enum Category {
   WOMEN = 'عطور حريمي',
   UNISEX = 'عطور للجنسين',
   OILS = 'زيوت عطرية',
-  GIFTS = 'هدايا وباكدجات'
+  AIR_FRESHENERS = 'معطرات'
 }
 
 export enum ProductSection {
   WESTERN = 'الغربي',
-  EASTERN = 'الشرقي'
+  EASTERN = 'الشرقي',
+  AIR_FRESHENERS = 'معطرات'
 }
 
 export interface Product {
